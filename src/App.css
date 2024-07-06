@@ -1,0 +1,13 @@
+body{
+    background-image:url('https://images.everydayhealth.com/images/healthy-living/fitness/everything-you-need-know-about-fitness-1440x810.jpg?sfvrsn=2fee0a3b_5');
+    background-repeat: no-repeat;
+    background-size: cover;
+     /*linear-gradient(to left,rgb(22, 220, 247),rgb(243, 27, 243),rgb(159, 140, 245))*/;
+}
+@media(max-width:600px){
+    #circle{
+        width:120px !important;
+        margin-left: 30px;
+        margin-top: 25px !important;
+    }
+}
