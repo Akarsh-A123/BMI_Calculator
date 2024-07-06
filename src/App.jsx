@@ -157,7 +157,7 @@ function App() {
 
 
           <div className=' d-flex flex-column align-items-center mb-md-0 mb-4'>
-            <img src='./src/bmiindex(1).png' width='70%' />
+            <img src='/src/assets/bmiindex(1).png' width='70%' />
             <div id='circle' style={{ width: '150px', height: '150px', position: 'absolute', marginTop: '13%', transform: 'rotate(-90deg)' }}>
               <CircularProgressbarWithChildren value={percentage} maxValue={180} counterClockwise={false} circleRatio={0.5} styles={{path:{stroke:color,strokeLinecap:"butt"},trail:{strokeLinecap:"butt"}}}>
                 <div className='text-center' style={{ transform: 'rotate(90deg)' }}>
