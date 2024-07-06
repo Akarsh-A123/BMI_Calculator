@@ -156,7 +156,7 @@ function App() {
 
   return (
     <>
-      <div className='row p-md-0 p-2 w-100 mt-3'>
+      <div className='row p-md-0 p-2 w-100 mt-md-3 mt-5'>
         <div className="col-md-4"></div>
         <div className="col-md-4 ms-2 ms-md-0 rounded px-4 d-flex flex-column align-items-center" style={{ background: 'transparent', backdropFilter: "blur(30px)", border: '1px solid #095972' }}>
           <h1 className='text-center mt-1 ' style={{ color: '#095972' }}>BMI Calculator</h1>
