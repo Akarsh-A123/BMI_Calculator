@@ -67,6 +67,8 @@ function App() {
     setIsage(true)
     setPercentage(0)
     setBody(0)
+    setTip("")
+    setMessage("")
   }
 
   const claculate = (e) => {
