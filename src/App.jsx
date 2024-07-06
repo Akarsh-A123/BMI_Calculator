@@ -20,9 +20,9 @@ function App() {
   const [isweight, setIsweight] = useState(true);
   const [isheight, setIsheight] = useState(true);
   const [isage, setIsage] = useState(true);
-  const [percentage,setPercentage] = useState(0);
-  const [color,setColor] = useState('')
-  const [tip,setTip] =useState('')
+  const [percentage, setPercentage] = useState(0);
+  const [color, setColor] = useState('')
+  const [tip, setTip] = useState('')
 
   const validate = (e) => {
     const data = e.target.value;
@@ -72,82 +72,87 @@ function App() {
   const claculate = (e) => {
     e.preventDefault()
     console.log(age, height, weight)
-    const het = height / 100;
-    const bmi = Math.round(weight / het ** 2)
-    const idweight =Math.round(24*(het**2))
-    const req_weight=idweight-weight;
-    if(req_weight>10){
-      setTip(`Increase weight by ${req_weight} kg`)
+    if (age == 0 || height == 0 || weight == 0 || gender=='') {
+      alert('Fill the form completely')
     }
-    else if(req_weight<0){
-      setTip(`Decrease weight by ${req_weight*-1} kg`)
-    }
-    else{
-      setTip('Keep up the good health')
-    }
+    else {
+      const het = height / 100;
+      const bmi = Math.round(weight / het ** 2)
+      const idweight = Math.round(24 * (het ** 2))
+      const req_weight = idweight - weight;
+      if (req_weight > 10) {
+        setTip(`Increase weight by ${req_weight} kg`)
+      }
+      else if (req_weight < 0) {
+        setTip(`Decrease weight by ${req_weight * -1} kg`)
+      }
+      else {
+        setTip('Keep up the good health')
+      }
 
 
-    console.log(bmi)
-    if (age > 19) {
-      if (bmi < 16) {
-        console.log('sever thinnes')
-        setBody(bmi)
-        setMessage('Sever thinnes')
-        setPercentage(20)
-        setColor('#52caf5')
-      }
-      else if (bmi >= 16 && bmi <= 17) {
-        console.log('moderate thinnes')
-        setBody(bmi)
-        setMessage('Moderate thinnes')
-        setPercentage(30)
-        setColor('#52caf5')
-      }
-      else if (bmi > 17 && bmi <= 18) {
-        console.log('mild thinness')
-        setBody(bmi)
-        setMessage('Mild thinness')
-        setPercentage(35)
-        setColor('#52caf5')
-      }
-      else if (bmi > 18 && bmi < 25) {
-        console.log('normal')
-        setBody(bmi)
-        setMessage('Normal')
-        setPercentage(50)
-        setColor('green')
-      }
-      else if (bmi >= 25 && bmi < 30) {
-        console.log('overWeight')
-        setBody(bmi)
-        setMessage('OverWeight')
-        setPercentage(90)
-        setColor('yellow')
-      }
-      else if (bmi >= 30 && bmi < 35) {
-        console.log('obese class 1')
-        setBody(bmi)
-        setMessage('Obese class 1')
-        setPercentage(130)
-        setColor('orange')
-      }
-      else if (bmi >= 35 && bmi < 40) {
-        console.log('obese class 2')
-        setBody(bmi)
-        setMessage('Obese class 2')
-        setPercentage(155)
-        setColor('red')
-      }
-      else if (bmi >= 40) {
-        console.log('obese class 3')
-        setBody(bmi)
-        setMessage('Obese class 3')
-        setPercentage(175)
-        setColor('red')
+      console.log(bmi)
+      if (age > 19) {
+        if (bmi < 16) {
+          console.log('sever thinnes')
+          setBody(bmi)
+          setMessage('Sever thinnes')
+          setPercentage(20)
+          setColor('#52caf5')
+        }
+        else if (bmi >= 16 && bmi <= 17) {
+          console.log('moderate thinnes')
+          setBody(bmi)
+          setMessage('Moderate thinnes')
+          setPercentage(30)
+          setColor('#52caf5')
+        }
+        else if (bmi > 17 && bmi <= 18) {
+          console.log('mild thinness')
+          setBody(bmi)
+          setMessage('Mild thinness')
+          setPercentage(35)
+          setColor('#52caf5')
+        }
+        else if (bmi > 18 && bmi < 25) {
+          console.log('normal')
+          setBody(bmi)
+          setMessage('Normal')
+          setPercentage(50)
+          setColor('green')
+        }
+        else if (bmi >= 25 && bmi < 30) {
+          console.log('overWeight')
+          setBody(bmi)
+          setMessage('OverWeight')
+          setPercentage(90)
+          setColor('yellow')
+        }
+        else if (bmi >= 30 && bmi < 35) {
+          console.log('obese class 1')
+          setBody(bmi)
+          setMessage('Obese class 1')
+          setPercentage(130)
+          setColor('orange')
+        }
+        else if (bmi >= 35 && bmi < 40) {
+          console.log('obese class 2')
+          setBody(bmi)
+          setMessage('Obese class 2')
+          setPercentage(155)
+          setColor('red')
+        }
+        else if (bmi >= 40) {
+          console.log('obese class 3')
+          setBody(bmi)
+          setMessage('Obese class 3')
+          setPercentage(175)
+          setColor('red')
+        }
       }
     }
   }
- 
+
 
   return (
     <>
@@ -160,15 +165,15 @@ function App() {
           <div className=' d-flex flex-column align-items-center mb-md-0 mb-4'>
             <img src={image} width='70%' />
             <div id='circle' style={{ width: '150px', height: '150px', position: 'absolute', marginTop: '13%', transform: 'rotate(-90deg)' }}>
-              <CircularProgressbarWithChildren value={percentage} maxValue={180} counterClockwise={false} circleRatio={0.5} styles={{path:{stroke:color,strokeLinecap:"butt"},trail:{strokeLinecap:"butt"}}}>
+              <CircularProgressbarWithChildren value={percentage} maxValue={180} counterClockwise={false} circleRatio={0.5} styles={{ path: { stroke: color, strokeLinecap: "butt" }, trail: { strokeLinecap: "butt" } }}>
                 <div className='text-center' style={{ transform: 'rotate(90deg)' }}>
-                  <p className='fw-bold mt-md-0 mt-3'>BMI: {body} <br /><br/><span  style={{color:color}}>{message}</span></p>
+                  <p className='fw-bold mt-md-0 mt-3'>BMI: {body} <br /><br /><span style={{ color: color }}>{message}</span></p>
                 </div>
               </CircularProgressbarWithChildren >
             </div>
           </div>
-          <h4 className='mt-3' style={{color:color}}>{tip}</h4>
-      
+          <h4 className='mt-3' style={{ color: color }}>{tip}</h4>
+
           <form className=' w-100 border-0 mt-2' onSubmit={claculate} style={{ background: 'transparent' }}>
             <div className='w-100 mt-3'>
               <TextField sx={{
@@ -237,7 +242,7 @@ function App() {
               {!isage && <p className='text-danger'>*Invalid Input</p>}
             </div>
             <RadioGroup row aria-labelledby="demo-radio-buttons-group-label" name="radio-buttons-group" className='mt-2 ' >
-              <FormControlLabel  value="female" control={<Radio />} label="Female" onChange={(e) => { setGender(e.target.value) }} />
+              <FormControlLabel value="female" control={<Radio />} label="Female" onChange={(e) => { setGender(e.target.value) }} />
               <FormControlLabel value="male" control={<Radio />} label="Male" onChange={(e) => { setGender(e.target.value) }} />
             </RadioGroup>
             <div className='mt-2 mb-3'>
